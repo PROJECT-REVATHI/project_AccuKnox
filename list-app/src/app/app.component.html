@@ -1,0 +1,40 @@
+<div class="container">
+  <!-- Header -->
+  <header class="header">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-KyZXEAg3QhqLMpG8r+KnujslAqUO1z/QXlKmn0Wq5t3e6cbW2qS/+J4FsE4jUuM60JjS80TSFHZpWVRD3Ve4Zg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <h1>Revathi Brungi</h1>
+    <p>Explore Our Post List</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="search-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="onSearch()"
+        placeholder="Search by title..."
+        aria-label="Search"
+      />
+      <i class="fas fa-search search-icon" style = "margin-left: -30px;"></i>
+    </div>
+
+    <div *ngIf="filteredPosts.length === 0" class="no-results">
+      <p>No posts found.</p>
+    </div>
+
+    <ul class="posts-list">
+      <li *ngFor="let post of filteredPosts" class="post-item">
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-body">{{ post.body }}</p>
+      </li>
+    </ul>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Revathi Brungi. All rights reserved.</p>
+  </footer>
+</div>
